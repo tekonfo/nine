@@ -10,6 +10,7 @@
         .fa.fa-cog.introduce__botton--display
       = link_to "/groups/new" do
         .fa.fa-pencil-square-o.introduce__botton--display
+
     - @groups.each do |group|
       = render partial: "shared/left-mid",locals: {group: group}
     /ここ部分テンプレート使うけど今は省略

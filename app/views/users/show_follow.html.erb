@@ -1,0 +1,16 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'users/stats' %>
+    <h2><%= @title %></h2>
+      <% if @users.any? %>
+          <% @users.each do |user| %>
+          <div class="user_avatars">
+<!--             <span><img src="<%#= user.avatar.url(:thumb) %>"></span><br /> -->
+            <%= link_to user.name ,user_path(user) %>
+          </div>
+          <% end %>
+      <% end %>
+    </section>
+  </aside>
+</div>
