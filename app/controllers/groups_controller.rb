@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   def index
     @group = Group.new
     @groups = current_user.groups
+    @friends = current_user.followings
   end
 
   def new
