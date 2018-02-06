@@ -1,0 +1,220 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-write{
+  background-color: $white-bule;
+  text-align: center;
+  color: $white;
+}
+
+ .contents {
+   width: 100vw;
+   height: 100vw;
+   margin: 0 auto;
+ }
+
+ .clearfix:after {
+   content: "";
+   clear: both;
+   display: block;
+  }
+
+.left-content{
+    &__header{
+        background-color: #253141;
+        padding: 35px 20px 15px;
+        height: 50px;
+    }
+    float: left;
+    background-color: #2f3e51;
+    width:300px;
+    height:100vw;
+}
+
+.introduce{
+  height:16px;
+      &__name{
+        float: left;
+        font-size:16px;
+        font-weight: bold;
+        color: $white;
+      }
+      &__botton{
+          // display: none;
+          float: right;
+          &--display{
+            zoom: 1,5;
+            margin: 0px 5px 0px 0px;
+            float: right;
+            color: $white;
+          }
+          &--setting{
+            float: right;
+          }
+      }
+
+  }
+
+
+
+//部分テンプレートの作成いる
+
+
+
+  .left-mid{
+      padding:0px 20px;
+    &__messeagesign{
+      font-size:11px;
+      color: $white;
+      margin: 0px 0px 40px;
+      text-decoration: none
+    }
+    &__groupname{
+      font-size:15px;
+      color: $white;
+      margin: 20px 0px 5px;
+      text-decoration: none
+    }
+ }
+
+
+.right-content{
+    float: right;
+    background-color: $white;
+    width: calc(100vw - 300px);
+    height:100vw;
+}
+
+
+.chat-group{
+  height:100px;
+  background-color: $white;
+  padding: 0px 40px;
+
+      &__div{
+        float: left;
+        &--right{
+          float: right;
+        }
+
+      }
+      &__link{
+          height: 40px;
+          margin: 28px 0px 0px;
+          padding: 0px 20px;
+          float: right;
+          color:$white-bule;
+      }
+      &--big{
+        font-size:20px;
+        color: #333333;
+        padding: 35px 0px 15px;
+      }
+      &--small{
+        font-size:12px;
+        color: $gray;
+      }
+
+  }
+.name-div{
+  height: 70px;
+}
+
+
+.name-write{
+      &--name{
+        display:table-cell;
+        font-size:16px;
+        color: $dark-gary;
+        font-weight: bold;
+        padding: 46px 0px 10px;
+      }
+      &--date{
+        display:table-cell;
+        font-size:14px;
+        color: $dark-gary;
+        padding: 49px 0px 10px 10px;
+      }
+      &--small{
+        font-size:12px;
+        color: $gray;
+        padding: 0px 0px 40px ;
+      }
+}
+
+
+
+
+  .right-foot{
+    background-color: $gray;
+    height: 50px;
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;     /*中央揃え*/
+    position: relative;
+    &__text{
+      width: 80%;
+      height: 50px;
+      float: left;
+      border: none;
+      color: $dark-gary;
+      margin: 0px 0px 0px 4%;
+      padding: 0px 0px 0px 1%;
+      }
+    &__image{
+      width: 50px;
+      height: 50px;
+      float: left;
+      font-size:14px;
+      color: $dark-gary;
+      padding: 0px 10px 0px 0px;
+      display: none;
+
+      &--display{
+        position: absolute;
+        top: 40%;
+        right: 18%;
+            }
+    }
+    &__submit{
+      width: 8%;
+      height: 50px;
+      background-color: $white-bule;
+      text-align: center;
+      float: right;
+      font-size:14px;
+      color: $white;
+      margin: 0px 4% 0px 2%;
+      }
+  }
+
+
+.right-mid{
+    border-top-style: solid 1px #eeeeee;
+    background-color: #d3d3d3;
+    padding: 0px 40px;
+    height: calc(100vw - 190px);
+    &__messeagesign{
+      font-size:11px;
+      color: $white;
+      margin: 0px 0px 40px;
+      text-decoration: none
+    }
+    &__groupname{
+      font-size:15px;
+      color: $white;
+      margin: 20px 0px 5px;
+      text-decoration: none
+
+    }
+ }
+
+.form-css{
+  width: 100%
+}
+
+
+.new_message{
+  width: 100%;
+}
