@@ -8,7 +8,7 @@
         = current_user.name
       = link_to "/users/#{current_user.id}/edit" do
         .fa.fa-cog.introduce__botton--display
-      = link_to "/users/#{current_user.id}/edit" do
+      = link_to "/groups/new" do
         .fa.fa-pencil-square-o.introduce__botton--display
     - @groups.each do |group|
       = render partial: "shared/left-mid",locals: {group: group}
