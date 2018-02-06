@@ -10,5 +10,6 @@ Rails.application.routes.draw do
       get :following, :followers, :users_tweets
     end
   end
+  get "/group/newfriend" => "groups#newfriend"
   resources :relationships, only: [:index,:create, :destroy]
 end

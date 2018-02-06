@@ -8,6 +8,16 @@ class GroupsController < ApplicationController
     @friends = current_user.followings
   end
 
+  def newfriend
+    @user_ids = []
+    @group = Group.new
+    @friend = []
+    @friend << User.find(params[:friend_id].to_i)
+    @friend << current_user
+    @user_ids << current_user.id
+    @user_ids << @friend[0].id
+  end
+
   def new
     @group = Group.new
     @users = User.all
@@ -15,6 +25,7 @@ class GroupsController < ApplicationController
 
 
   def create
+    binding.pry
     @group = Group.new(group_permit_params)
     if  @group.save
       flash[:notice] = "グループの作成に成功しました。"

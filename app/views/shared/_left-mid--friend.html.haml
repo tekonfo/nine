@@ -1,3 +1,7 @@
 .left-mid
   =  friend.name
+  = link_to "/users/#{current_user.id}/edit" ,class: "left-mid__groupname" do
+    トーク
 
+  = link_to group_newfriend_path(friend_id: friend.id),class: "left-mid__groupname" do
+    トーク作成
