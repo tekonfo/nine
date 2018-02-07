@@ -34,7 +34,7 @@
       %label.chat-group-form__label
         チャットメンバー
     .chat-group-form__field--right
-      = f.hidden_field :one_to_one, :value => 1
+      = f.hidden_field :onetoone, :value => 1
       = f.collection_check_boxes  :user_ids, @friend , :id, :name,checked: @user_ids
       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します

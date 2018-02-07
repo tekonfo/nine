@@ -6,6 +6,9 @@ class GroupsController < ApplicationController
     @group = Group.new
     @groups = current_user.groups
     @friends = current_user.followings
+    @friend_group = current_user.groups.where(onetoone: "1")
+    friendgroups = Group.where(user: { id: current_user.id})
+    #friend_groupはonetooneが１のレコードたち
   end
 
   def newfriend
@@ -25,8 +28,14 @@ class GroupsController < ApplicationController
 
 
   def create
-    binding.pry
-    @group = Group.new(group_permit_params)
+    if  params[:group][:onetoone]
+      group_friend_permit_params
+      @group = Group.new(group_friend_permit_params)
+      binding.pry
+    else
+      group_permit_params
+      @group = Group.new(group_permit_params)
+    end
     if  @group.save
       flash[:notice] = "グループの作成に成功しました。"
       redirect_to  action: :index
@@ -57,6 +66,9 @@ class GroupsController < ApplicationController
 
 
   private
+  def group_friend_permit_params
+    params.require(:group).permit(:name,:onetoone, user_ids: [])
+  end
 
   def group_permit_params
     params.require(:group).permit(:name, user_ids: [])
