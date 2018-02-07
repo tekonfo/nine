@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
   function buildHTML(comment){
     var html = `<p class="name-write--name">${comment.user_name}</p>
     <p class="name-write--date">${comment.updated_time}</p>
@@ -42,5 +42,6 @@ $(function(){
     .fail(function(){
       alert('メッセージを入力してください');
     })
+    return false;
   })
 });
