@@ -9,7 +9,10 @@
       .searchresult
         = link_to "/users/#{user.id}" do
           =user.name
-        = image_tag user.avatar,class: "image"
+        -if user.avatar?
+          = image_tag user.avatar,class: "image"
+        -else
+          = image_tag "/assets/Kusf_Ydu.jpg",class: "image"
 
 
 
