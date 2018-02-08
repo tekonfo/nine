@@ -7,7 +7,7 @@ def index
         user_id << users_id.to_i
       end
     end
-    @users = User.search(params[:keyword],user_id)
+    @users = User.search_tag(params[:keyword],user_id)
     respond_to do |format|
      format.html
      format.json { render 'index', json: @users }

@@ -1,20 +1,15 @@
-- provide(:title, 'All users')
-%h1 All users
-/ 検索拡張機能
-%p user search
-= form_tag  "/relationships",method: :get do
-  = text_field_tag :search
-  = submit_tag 'Search', :name => nil
-%ul.users
-  - @users.each do |user|
-    = link_to "/users/#{user.id}/edit" do
-      =user.name
 
-%dl
-  %dt サンプル 3
-  %dd
-    %form#searchform3{:action => "#", :method => "get", :name => "searchform3"}
-      %input#keywords3{:name => "keywords3", :type => "text", :value => ""}/
-      %input#searchBtn3{:alt => "検索", :name => "searchBtn3", :src => "image/btn3.gif", :type => "image"}/
+#login
+  = form_tag  "/relationships",method: :get do
+    %span.fontawesome-user
+    = text_field_tag :search,nil,class: :text_field,placeholder: "Username"
+    = submit_tag "検索"
+  %ul.users.user_name
+    - @users.each do |user|
+      .searchresult
+        = link_to "/users/#{user.id}" do
+          =user.name
+        = image_tag user.avatar,class: "image"
+
 
 

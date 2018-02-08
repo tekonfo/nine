@@ -58,5 +58,5 @@ def talk_search(current_user)
   end
 
 
-  # scope :search, -> (keyword,user_id){ where('name LIKE(?)', "%#{keyword}%").where.not(id: user_id).limit(20) }
+   scope :search_tag, -> (keyword,user_id){ where('name LIKE(?)', "%#{keyword}%").where.not(id: user_id).limit(20) }
 end
