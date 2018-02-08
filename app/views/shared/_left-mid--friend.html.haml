@@ -4,9 +4,10 @@
   //-friendgroups = Group.includes(:users).where(user: { [id: current_user.id,friend.id]})
   //#-binding.pry
   //-if
-  = link_to "/users/#{current_user.id}/edit" ,class: "left-mid__groupname" do
-    トーク
-    //-else
-  = link_to group_newfriend_path(friend_id: friend.id),class: "left-mid__groupname" do
-    トーク作成
-    //-end
+  -talk = friend.talk_search(current_user)
+  -if talk != nil
+    = link_to "/groups/#{talk.id}/messages" ,class: "left-mid__groupname" do
+      トーク
+  -else
+    = link_to group_newfriend_path(friend_id: friend.id),class: "left-mid__groupname" do
+      トーク作成

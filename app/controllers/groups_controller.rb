@@ -6,9 +6,17 @@ class GroupsController < ApplicationController
     @group = Group.new
     @groups = current_user.groups
     @friends = current_user.followings
-    @friend_group = current_user.groups.where(onetoone: "1")
-    friendgroups = Group.where(user: { id: current_user.id})
-    #friend_groupはonetooneが１のレコードたち
+    @groups_friend = current_user.groups.where(onetoone: "1")
+    @friend_group = User.find(1).groups.where(onetoone: "1")
+    @end = []
+    @friend_group.each do |friend|
+      @groups_friend.each do |group|
+        if friend.id == group.id
+            @end = group
+            break
+        end
+      end
+    end
   end
 
   def newfriend

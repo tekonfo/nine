@@ -4,8 +4,9 @@
 .contents.clearfix
   .left-content
     %header.left-content__header.clearfix
-      .introduce__name
-        = current_user.name
+      = link_to "/" do
+        .introduce__name
+          = current_user.name
       = link_to "/users/#{current_user.id}/edit" do
         .fa.fa-cog.introduce__botton--display
       = link_to "/groups/new" do
