@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
   def index
-    @user = User.all
+    @users = User.search(params[:search])
   end
   def create
     @user = User.find(params[:relationship][:following_id])
