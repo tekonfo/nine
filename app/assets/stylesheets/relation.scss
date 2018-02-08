@@ -14,3 +14,15 @@
     top: -1px;
     left: 178px;
 }
+.image{
+    float: left;
+    display: inline-block;
+    background-color: #ccc;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    background-size: cover;
+}

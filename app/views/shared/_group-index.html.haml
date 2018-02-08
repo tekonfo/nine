@@ -4,6 +4,7 @@
 .contents.clearfix
   .left-content
     %header.left-content__header.clearfix
+      = image_tag current_user.avatar,class: "image"
       = link_to "/" do
         .introduce__name
           = current_user.name

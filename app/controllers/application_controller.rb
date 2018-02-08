@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
 ##deviseに登録するカラムを追加している。今回はnameカラムを追加している。
   def configure_permitted_parameters
-    added_attrs = [ :name, :email, :password, :password_confirmation]
+    added_attrs = [ :name, :email, :password, :password_confirmation,:avatar]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
