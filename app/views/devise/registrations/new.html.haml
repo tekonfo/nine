@@ -18,6 +18,10 @@
           .field-input
             = f.email_field :email
         .field
+          .field-input
+            イメージ画像
+            = f.file_field :avatar
+        .field
           .field-label
             = f.label :password
             %i (英数字8文字以上)
