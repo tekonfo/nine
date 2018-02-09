@@ -1,18 +1,18 @@
-
-#login
-  = form_tag  "/relationships",method: :get do
-    %span.fontawesome-user
-    = text_field_tag :search,nil,class: :text_field,placeholder: "Username"
-    = submit_tag "検索"
-  %ul.users.user_name
-    - @users.each do |user|
-      .searchresult
-        = link_to "/users/#{user.id}" do
-          =user.name
-        -if user.avatar?
-          = image_tag user.avatar,class: "image"
-        -else
-          = image_tag "/assets/Kusf_Ydu.jpg",class: "image"
+.color
+  #login
+    = form_tag  "/relationships",method: :get do
+      %span.fontawesome-user
+      = text_field_tag :search,nil,class: :text_field,placeholder: "Username"
+      = submit_tag "検索"
+    %ul.users.user_name
+      - @users.each do |user|
+        .searchresult
+          = link_to "/users/#{user.id}" do
+            =user.name
+          -if user.avatar?
+            = image_tag user.avatar,class: "image"
+          -else
+            = image_tag "/assets/Kusf_Ydu.jpg",class: "image"
 
 
 

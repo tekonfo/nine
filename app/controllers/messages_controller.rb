@@ -26,8 +26,20 @@ class MessagesController < ApplicationController
   private
 
   def get_instance
-    @group = Group.find(params[:group_id])
     @groups = current_user.groups
+    @friends = current_user.followings
+    @groups_friend = current_user.groups.where(onetoone: "1")
+    @friend_group = User.find(1).groups.where(onetoone: "1")
+    @end = []
+    @friend_group.each do |friend|
+      @groups_friend.each do |group|
+        if friend.id == group.id
+            @end = group
+            break
+        end
+      end
+    end
+    @group = Group.find(params[:group_id])
     @message = Message.new
     @messages = @group.messages
   end

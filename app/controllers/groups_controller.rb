@@ -39,7 +39,6 @@ class GroupsController < ApplicationController
     if  params[:group][:onetoone]
       group_friend_permit_params
       @group = Group.new(group_friend_permit_params)
-      binding.pry
     else
       group_permit_params
       @group = Group.new(group_permit_params)

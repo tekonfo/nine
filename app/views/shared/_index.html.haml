@@ -4,15 +4,29 @@
 .contents.clearfix
   .left-content
     %header.left-content__header.clearfix
-      .introduce__name
-        = current_user.name
+      -if current_user.avatar?
+        = image_tag current_user.avatar,class: "image"
+      -else
+        = image_tag "/assets/Kusf_Ydu.jpg",class: "image"
+      = link_to "/" do
+        .introduce__name
+          = current_user.name
       = link_to "/users/#{current_user.id}/edit" do
-        .fa.fa-cog.introduce__botton--display
+        .fa.fa-cog.introduce__botton--display.introduce_edit
       = link_to "/groups/new" do
-        .fa.fa-pencil-square-o.introduce__botton--display
-
-    - @groups.each do |group|
-      = render partial: "shared/left-mid",locals: {group: group}
+        .fa.fa-pencil-square-o.introduce__botton--display.introduce_group-new
+      = link_to "/users/#{current_user.id}" do
+        .fa.fa-address-book.introduce__botton--display.introduce_mypage
+    .left-mid__groupname
+      友達
+      = link_to "/relationships" do
+        .fa.fa-search.margin_right.introduce__botton--display
+      - @friends.each do |friend|
+        = render partial: "shared/left-mid--friend",locals: {friend: friend}
+    .left-mid__groupname
+      メッセージ
+      - @groups.each do |group|
+        = render partial: "shared/left-mid",locals: {group: group}
     /ここ部分テンプレート使うけど今は省略
     / =@hairetu.each do |article|
     /   = render partial: "group", locals: { article: @hairetu }

@@ -12,15 +12,15 @@
         .introduce__name
           = current_user.name
       = link_to "/users/#{current_user.id}/edit" do
-        .fa.fa-cog.introduce__botton--display
+        .fa.fa-cog.introduce__botton--display.introduce_edit
       = link_to "/groups/new" do
-        .fa.fa-pencil-square-o.introduce__botton--display
+        .fa.fa-pencil-square-o.introduce__botton--display.introduce_group-new
       = link_to "/users/#{current_user.id}" do
-        .fa.fa-address-book.introduce__botton--display
+        .fa.fa-address-book.introduce__botton--display.introduce_mypage
     .left-mid__groupname
       友達
       = link_to "/relationships" do
-        .fa.fa-search.introduce__botton--display
+        .fa.fa-search.margin_right.introduce__botton--display
       - @friends.each do |friend|
         = render partial: "shared/left-mid--friend",locals: {friend: friend}
     .left-mid__groupname

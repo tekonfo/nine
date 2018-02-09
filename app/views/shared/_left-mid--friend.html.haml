@@ -1,4 +1,8 @@
-.left-mid
+.left-mid.show__friend
+  -if current_user.avatar?
+    = image_tag current_user.avatar,class: "image__friend"
+  -else
+    = image_tag "/assets/Kusf_Ydu.jpg",class: "image__friend"
   =  friend.name
   //current_userのグループの中でonetooneを持っているフレンドがいればトークを表示、そうでなければトーク作成を表示する
   //-friendgroups = Group.includes(:users).where(user: { [id: current_user.id,friend.id]})

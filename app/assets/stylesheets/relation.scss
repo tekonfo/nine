@@ -162,11 +162,56 @@ after { clear: both; }
     font-size: 20px;
     padding-top: 15px;
     position: absolute;
+    padding-left: 5px
 }
 
 
 .searchresult .image{
   position: absolute;
   margin-left: 100px;
+}
+
+.color {
+  background-color: #2f3e51;
+  padding-top: 50px;
+}
+
+.margin_right{
+  margin-right: 25px;
+}
+
+.introduce__name{
+    position: absolute;
+    margin-left: 55px;
+    margin-top: 13px
+}
+
+
+.introduce_edit{
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 13px
+}
+
+.introduce_mypage{
+    position: absolute;
+    margin-left: 165px;
+    margin-top: 13px
+}
+
+.introduce_group-new{
+    position: absolute;
+    margin-left: 182px;
+    margin-top: 13px
+}
+
+.image__friend{
+    margin-top: 30px;
+    width: 40px;
+    height: 40px;
+}
+
+.show__friend{
+
 }
 
