@@ -86,90 +86,86 @@ $(function(){
     $parent = $input.parent();
     $parent.remove();
 
-    //     $.ajax({
-    //   type: 'GET',
-    //   url: '/users',
-    //   dataType: 'json',
-    // })
-
-    // .done(function(data) {
-    //   })
-
-    // .fail(function(){
-    //   alert('追加に失敗しました');
-    // })
 
     });
 
-//   $(document).on("click",".chat-group-user__btn--remove", function() {
-// //paramsを追加してviewそれに対応するviewを追加する
-//     $input = $(this);
-//     var add_user_html = addHTML($input);
-//     $("#search-users").append(add_user_html);
+  function buildUPdate(comment){
+    var html = ''
+    if (comment.id == comment.current_user) {
 
-//     debugger;
+      html = html + '<div class="message__box clearfix"><div class="message__right">'
+    }else{
+      html = html + '<div class="message__box clearfix"><div>'
+    }
 
-//     $.ajax({
-//       type: 'GET',
-//       url: '/users',
-//       data: { keyword: input },
-//       dataType: 'json',
-//     })
+    html = html  + `<p class="name-write--name">${comment.name}</p>
+    <p class="name-write--date">${comment.date}</p>
+    `
 
-//     .done(function(data) {
-//       })
+    if (comment.text != null) {
+    html = html + `<div class="example">
+<img class="image__image" src="/assets/fukidashi_48-1-f03fcaa1ca1f2a4107b2de3384a0ab73e83be017e7a62a93ae7326c1d842810e.png" alt="Fukidashi 48 1">
+<p>
+${comment.text}
+</p>
+</div>
+    `
+    }
+    if (comment.image.url != null) {
+    html = html + `<p><img src="${comment.image.url}" alt="image"></p>
+    `
+    }
 
-//     .fail(function(){
-//       alert('追加に失敗しました');
-//     })
+    html = html + '</div></div>'
+    return html;
+  }
 
-//     });
+  var interval =  setInterval(function(){
+  if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    $.ajax({
+      url: location.href.json,
+      dataType: 'json',
+    })
+    .done(function(data){
+    var divmessage =$('.message')
+    var html = ''
+    var id = $($('.message')[divmessage.length-1]).data('messageId');
+    if (data.messages.length != 0) {
+      data.messages.forEach(function(message){
+        if (message.id > id || id == null) {
+          var html = html + buildUPdate(message);
+        }
+      });
+    }
+    $('.right-mid').append(html)
+    //console.log("aaa");
+    })
+    .fail(function(){
+      alert('エラーが発生しました。');
+    })
+  } else {
+    clearInterval(interval);
+  }
+  },5000);
 
   });
-// $(document).on('turbolinks:load', function() {
-//   function buildHTML(comment){
-//     var html = `<div class="message" data-message-id="${comment.id}"><p class="name-write--name">${comment.user_name}</p>
-//     <p class="name-write--date">${comment.updated_time}</p>
-//     `
 
-//     if (comment.text != null) {
-//     html = html + `<p class="name-write--small">${comment.text}</p>
-//     `
-//     }
-//     if (comment.image.url != null) {
-//     html = html + `<p><img src="${comment.image.url}" alt="image"></p>
-//     `
-//     }
 
-//     html = html + '</div>'
-//     return html;
-//   }
-
-//   var interval =  setInterval(function(){
-//   if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-//     $.ajax({
-//       url: location.href.json,
-//       dataType: 'json',
-//     })
-//     .done(function(data){
-//     var divmessage =$('.message')
-//     var html = ''
-//     var id = $($('.message')[divmessage.length-1]).data('messageId');
-//     if (data.messages.length != 0) {
-//       data.messages.forEach(function(message){
-//         if (message.id > id || id == null) {
-//           var html = html + buildHTML(message);
-//         }
-//       });
-//     }
-//     $('.right-mid').append(html)
-//     console.log("aaa");
-//     })
-//     .fail(function(){
-//       alert('エラーが発生しました。');
-//     })
-//   } else {
-//     clearInterval(interval);
-//   }
-//   },5000);
-// });
+// <div class="message__box clearfix">
+// <div class="message__right">
+// <p class="name-write--name">
+// 3
+// </p>
+// <p class="name-write--date">
+// 2018/02/09 05:33
+// </p>
+// <p class="name-write--small">
+// </p><div class="example">
+// <img class="image__image" src="/assets/fukidashi_48-1-f03fcaa1ca1f2a4107b2de3384a0ab73e83be017e7a62a93ae7326c1d842810e.png" alt="Fukidashi 48 1">
+// <p>
+// a
+// </p>
+// </div>
+// <p></p>
+// </div>
+// </div>

@@ -1,3 +1,5 @@
+
+
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -139,9 +141,20 @@
       &--small{
         font-size:12px;
         color: $gray;
-        padding: 0px 0px 40px ;
       }
 }
+.example {/*親div*/
+  position: relative;/*相対配置*/
+}
+.example p {
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  top: 7px;
+  left: 20px;
+  font-size: 25px;
+}
+
+
 
 
 
@@ -217,4 +230,9 @@
 
 .new_message{
   width: 100%;
+}
+
+.my-page{
+  font-size: 30px;
+  padding-left: 15px;
 }

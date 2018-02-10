@@ -1,10 +1,27 @@
 .message{"data-message-id": "#{message.id}"}
-  %p.name-write--name
-    = message.user.name
-  %p.name-write--date
-    = message.updated_at.strftime('%Y/%m/%d %H:%M')
-  %p.name-write--small
-    - if message.text?
-      = message.text
-    - if message.image?
-      = image_tag message.image.to_s
+  -if message.user == current_user
+    .message__box.clearfix
+      .message__right
+        %p.name-write--name
+          = message.user.name
+        %p.name-write--date
+          = message.updated_at.strftime('%Y/%m/%d %H:%M')
+        %p.name-write--small
+          - if message.text?
+            .example
+              = image_tag "fukidashi_48-1.png",class: "image__image"
+              %p
+                = message.text
+          - if message.image?
+            = image_tag message.image.to_s
+  -else
+    .message__box
+    %p.name-write--name
+      = message.user.name
+    %p.name-write--date
+      = message.updated_at.strftime('%Y/%m/%d %H:%M')
+    %p.name-write--small
+      - if message.text?
+        = message.text
+      - if message.image?
+        = image_tag message.image.to_s

@@ -214,4 +214,24 @@ after { clear: both; }
 .show__friend{
 
 }
+.message__box{
+  //background-color: $white;
+  width: 100%;
+}
+
+.image__image{
+  height: 50px;
+}
+
+.message__right{
+  float: right;
+  margin-right: 40px;
+}
+
+.line__image{
+  float: left;
+  position: absolute;
+    height: 100vw;
+    width: 100vw
+}
 

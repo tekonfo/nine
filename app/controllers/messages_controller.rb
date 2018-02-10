@@ -26,6 +26,7 @@ class MessagesController < ApplicationController
   private
 
   def get_instance
+    @current_user = current_user
     @groups = current_user.groups
     @friends = current_user.followings
     @groups_friend = current_user.groups.where(onetoone: "1")

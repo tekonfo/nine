@@ -1,7 +1,9 @@
 
 / .top-write
 /   チャットグループが作成されました。
+
 .contents.clearfix
+  = image_tag "/assets/line.png",class: "line__image"
   .left-content
     %header.left-content__header.clearfix
       -if current_user.avatar?
@@ -30,6 +32,8 @@
     /ここ部分テンプレート使うけど今は省略
     / =@hairetu.each do |article|
     /   = render partial: "group", locals: { article: @hairetu }
+
+
   .right-content
     .chat-group.clearfix
       .chat-group__div
@@ -41,4 +45,6 @@
           %input.chat-group__link{type:  "submit", value: "exit"}
     .right-mid
     %footer.right-foot.clearfix
+
+
 

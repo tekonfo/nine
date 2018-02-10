@@ -1,6 +1,14 @@
 $(document).on('turbolinks:load',function(){
+
   function buildHTML(comment){
-    var html = `<p class="name-write--name">${comment.user_name}</p>
+    var html = ''
+    if (comment.user_name == comment.current_user) {
+      html = html + '<div class="message__box message__right">'
+    }else{
+      html = html + '<div>'
+    }
+
+    html = html  + `<p class="name-write--name">${comment.user_name}</p>
     <p class="name-write--date">${comment.updated_time}</p>
     `
 
@@ -12,6 +20,8 @@ $(document).on('turbolinks:load',function(){
     html = html + `<p><img src="${comment.image.url}" alt="image"></p>
     `
     }
+
+    html = html + '</div>'
     return html;
   }
   $('#new_message').on('submit', function(e){
@@ -44,4 +54,9 @@ $(document).on('turbolinks:load',function(){
     })
     return false;
   })
+
+  setTimeout(function() {
+    $('.line__image').fadeOut();
+}, 2000);
+
 });
